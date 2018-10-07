@@ -1,7 +1,7 @@
 highlighter: rouge
 baseurl: /esc18
 menu_header: ESC18
-exercises_repo: https://github.com/infn-esc/esc18/blob/gh-pages
+exercises_repo: https://github.com/infn-esc/esc18/blob/master
 menu:
   -
     name: basic
