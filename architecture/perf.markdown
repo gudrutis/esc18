@@ -4,6 +4,10 @@ layout: main
 category: Architecture
 ---
 
+PERF
+====
+
+
 ``perf`` is a tool to profile a process using ``Hardware Performance Counters``. Each counter counts
 Events in the CPU such as cycles, executed instructions, load from a given level of the memory caches,
 branches...
@@ -24,6 +28,8 @@ One can choose a set of events and list them on the command line as in
 [`doPerf`]({{site.exercises_repo}}/hands-on/architecture/doPerf)
 
 For large applications more details can be obtained running ``perf record``  that will produce a file containing all sampled events and their location in the application.
+``perf record  --call-graph=dwarf`` will produce a full call-graph. On more recent Intel hardware (since Haswell)
+one can use ``perf record  --call-graph=lbr`` which is faster and produce a more compact report.
 ``perf report`` can be used to display the detailed profile
 
 a wrapper defining more user-friedly name for INTEL counters can be downloaded
@@ -40,15 +46,17 @@ try
 ~/pmu-tools/ocperf.py list
 {% endhighlight %}
 to have a list of ALL available counters (and their meaning)
+The actual name of the counters keep changing, so for a detail analysis one has to tailor the events to the actual hardware...
 
-for an example see
-[`doOCPerf`]({{site.exercises_repo}}/hands-on/architecture/doOCPerf)
+for an example (tailored to the Ivy-Bridge machines used for the exercise) see
+[`doOCPerfIB`]({{site.exercises_repo}}/hands-on/architecture/doOCPerfIB)
 
 
-Excercise 1
+Excercise 2
 -----------
 
 Exchange the order of the loops in the matrix multiplication
+------------------------------------------------------------
 
 Use [matmul.cpp]({{site.exercises_repo}}/hands-on/architecture/matmul.cpp)
 
@@ -64,30 +72,37 @@ perf stat -d ./a.out
 Recompile with<br>
 -O3  (aggressive optimization and vectorization)<br>
 -Ofast (allow reordering of math operation)<br>
-Add -ffunroll-loops (force loop unrolling)
+Add -funroll-loops (force loop unrolling)
 
 Change the product in a division
+(use `doOCPerfIB`)
 
-
-Excercise 2
+More tests
 -----------
 
+
+Caveat: as in Exercise 1 compiler optimization choices may affect performances well bejond
+code changes and HW architecture.
+
+
+
 Compare Horner Method with Estrin
+----------------------------------
+
 
 Use [PolyTest.cpp]({{site.exercises_repo}}/hands-on/architecture/PolyTest.cpp)
 
-compile, measure performance and eventually change compiler options as in Exercise 1
+compile, measure performance and eventually change compiler options as in Exercise 2
 
 try also [pipeline.cpp]({{site.exercises_repo}}/hands-on/architecture/pipeline.cpp)
 
-Excercise 3
------------
 
 Branch predictor in OO code
+----------------------------------
 
 Use [Virtual.cpp]({{site.exercises_repo}}/hands-on/architecture/Virtual.cpp)
 
-compile, measure performance and eventually change compiler options as in Exercise 1
+compile, measure performance and eventually change compiler options as in Exercise 2
 
 Measure in various conditions
    * Remove “random_shuffle”
@@ -99,14 +114,14 @@ Measure in various conditions
 
 
 
-Excercise 4
------------
+
 
 Different form of “Braching” in conditional code
+----------------------------------
 
 Use [Branch.cpp]({{site.exercises_repo}}/hands-on/architecture/Branch.cpp)
 
-compile, measure performance and eventually change compiler options as in Exercise 1
+compile, measure performance and eventually change compiler options as in Exercise 2
 
 Measure in various conditions
    * Remove “random_shuffle”
