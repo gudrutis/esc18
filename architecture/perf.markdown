@@ -24,6 +24,8 @@ One can choose a set of events and list them on the command line as in
 [`doPerf`]({{site.exercises_repo}}/hands-on/architecture/doPerf)
 
 For large applications more details can be obtained running ``perf record``  that will produce a file containing all sampled events and their location in the application.
+``perf record  --call-graph=dwarf`` will produce a full call-graph. On more recent Intel hardware (since Haswell)
+one can use ``perf record  --call-graph=lbr`` which is faster and produce a more compact report.
 ``perf report`` can be used to display the detailed profile
 
 a wrapper defining more user-friedly name for INTEL counters can be downloaded
@@ -40,9 +42,10 @@ try
 ~/pmu-tools/ocperf.py list
 {% endhighlight %}
 to have a list of ALL available counters (and their meaning)
+The actual name of the counters keep changing, so for a detail analysis one has to tailor the events to the actual hardware...
 
-for an example see
-[`doOCPerf`]({{site.exercises_repo}}/hands-on/architecture/doOCPerf)
+for an example (tailored to the Ivy-Bridge machines used for the exercise) see
+[`doOCPerfIB`]({{site.exercises_repo}}/hands-on/architecture/doOCPerfIB)
 
 
 Excercise 1
