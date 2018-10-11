@@ -32,7 +32,7 @@ int main() {
  }
 
  auto deltaF = std::chrono::duration_cast<std::chrono::milliseconds>(delta).count();
- std::cout << "time " << deltaF << " ave " << m/nn << " rms " << sqrt((m2-m*m/nn)/(nn-1)) << std::endl;
+ std::cout << "time " << deltaF << " N " << nn << " ave " << m/nn << " rms " << sqrt((m2-m*m/nn)/(nn-1)) << std::endl;
 
 return 0;
 
