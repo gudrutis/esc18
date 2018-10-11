@@ -130,6 +130,7 @@ int main() {
 
   stop("start");
 
+#ifdef TEST_STACK
   f(0);
   stop("after f(0)");
   f(100);
@@ -138,6 +139,7 @@ int main() {
   stop("after f(10000)");
   f(50);
   stop("after f(50)");
+#endif
 
   constexpr size_t N = 1000*1000*1000;
 

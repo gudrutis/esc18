@@ -17,7 +17,7 @@ void stop(const char * m) {
   auto delta = std::chrono::high_resolution_clock::now()-start;
   maxLive= std::max( maxLive, memory_usage::totlive() );
   std::cout << m;
-  std::cout << " elapsted time " << std::chrono::duration_cast<std::chrono::nanoseconds>(delta).count() << std::endl;
+  std::cout << " elapsted time (ms) " << std::chrono::duration_cast<std::chrono::milliseconds>(delta).count() << std::endl;
   std::cout << "allocated so far " << memory_usage::allocated();
   std::cout << " deallocated so far " << memory_usage::deallocated() << std::endl;
   std::cout << "total / max live " << memory_usage::totlive() << ' ' << maxLive << std::endl;
@@ -118,7 +118,7 @@ void one(bool doprint) {
   int totElement=0;
   for(int i=0;i<na;++i) totElement += (nb[i]=bGen(reng));
   try {
-    stop("before first loop");
+    if (doprint) stop("before first loop");
     // here we fake a clustering process
     // WHAT WE KNOW IS ONLY THAT WE HAVE totElement ELEMENTS
     // this is given as input. they are store somewhere
@@ -137,14 +137,14 @@ void one(bool doprint) {
       for(int j=0;j<nb[i+nah];++j) v.push_back(kk2++);
 
     }
-    stop("after first loop");
+    if (doprint) stop("after first loop");
  
     assert(va.size()==nah);
     for(int i=0;i<nah;++i) {
       assert(va[i].v.size()==nb[i]+nb[i+nah]);
     }
 
-    stop("before second loop");
+    if (doprint) stop("before second loop");
     // now we split
     // again algo irrelevant, just data structure and their filling to be optimized
     for(int i=0;i<nah;++i) {
@@ -156,7 +156,7 @@ void one(bool doprint) {
       // remove them from v1
       v1.resize(nb[i]);
     }
-    stop("after second loop");
+    if (doprint) stop("after second loop");
 
     int kk=0;
     assert(va.size()==na);
@@ -170,11 +170,11 @@ void one(bool doprint) {
     assert(totsize==totElement); // all these push_back to get a number that was given to us!
 
     /// bonus sort!
-    stop("before sort");
+    if (doprint) stop("before sort");
     std::sort(va.begin(),va.end(),
 	      [](auto const & a, auto const & b) { return a.v.size()<b.v.size();}
 	      );
-    stop("after sort");
+    if (doprint) stop("after sort");
   }
   catch(...) {
     std::cout << "oops" << std::endl;    
@@ -194,16 +194,17 @@ void one(bool doprint) {
 int main() {
 
   one(true);
+  stop("\nafter call: ");
 
-  for (int i=0; i<100; ++i) {
+  for (int i=0; i<20; ++i) {
     one(false);
-    stop("after call");
-
+    // stop("after call");
   }
+  stop("\nafter loop in main: ");
 
   one(true);
 
-  stop("\nat the end");
+  stop("\nat the end: ");
 
   
   return 0;
