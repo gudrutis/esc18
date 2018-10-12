@@ -51,9 +51,22 @@ The actual name of the counters keep changing, so for a detail analysis one has 
 for an example (tailored to the Ivy-Bridge machines used for the exercise) see
 [`doOCPerfIB`]({{site.exercises_repo}}/hands-on/architecture/doOCPerfIB)
 
+Excercise 1
+===========
+
+
+Discover where and why time is wasted
+_____________________________________
+
+
+use perf to discover why the performance of the three programs
+randg.py, randgNP.py and randg.cpp are so vastly different even if there are supposed to perfom exaclty the same work
+(throw "N" random gaussian numbers and compute average and rms....)
+
+
 
 Excercise 2
------------
+===========
 
 Exchange the order of the loops in the matrix multiplication
 ------------------------------------------------------------
@@ -78,7 +91,7 @@ Change the product in a division
 (use `doOCPerfIB`)
 
 More tests
------------
+==========
 
 
 Caveat: as in Exercise 1 compiler optimization choices may affect performances well bejond
