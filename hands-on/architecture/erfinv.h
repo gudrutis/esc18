@@ -127,13 +127,13 @@ void erfinV(float * __restrict__ x, float const *  __restrict__ ur, uint32_t N) 
   for (int i=0;i<N;++i) {
     float w = -  unsafe_logf<8>((1.0f-r[i])*(1.0f+r[i]));
     t[i] = w > 5.0f;
-    b[i]=sqrt(2)*r[i]*erfinv_like(w);
+    b[i] = std::sqrt(2.f)*r[i]*erfinv_like(w);
   }
   
   for (int i=0;i<N;++i) {
     if(t[i]) {
       float w = -  unsafe_logf<8>((1.0f-r[i])*(1.0f+r[i]));
-      b[i] = sqrt(2)*r[i]*erfinv_unlike(w);
+      b[i] = std::sqrt(2.f)*r[i]*erfinv_unlike(w);
     }
   }
 }

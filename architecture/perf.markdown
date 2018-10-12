@@ -51,6 +51,8 @@ The actual name of the counters keep changing, so for a detail analysis one has 
 for an example (tailored to the Ivy-Bridge machines used for the exercise) see
 [`doOCPerfIB`]({{site.exercises_repo}}/hands-on/architecture/doOCPerfIB)
 
+
+
 Excercise 1
 ===========
 
@@ -59,9 +61,10 @@ Discover where and why time is wasted
 _____________________________________
 
 
-use perf to discover why the performance of the three programs
-randg.py, randgNP.py and randg.cpp are so vastly different even if there are supposed to perfom exaclty the same work
-(throw "N" random gaussian numbers and compute average and rms....)
+use perf to discover why the performance of the four programs
+randg.py, randgNP.py, randg.cpp and erfinv_t.cpp (the last two to compile with ``c++ -Ofast -march=native``
+are so vastly different even if there are supposed to perfom exaclty the same work
+(throw "N" random gaussian numbersand compute average and rms....)
 
 
 
