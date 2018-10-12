@@ -17,7 +17,7 @@ int main() {
  float norm = 2.f/float(reng.max());
  
  int  n = (1000 * 1000 * 12.5);
- constexpr int NV = 10000;
+ constexpr int NV = 1024*8;
  
  double m=0;
  double m2=0;

@@ -64,7 +64,7 @@ _____________________________________
 use perf to discover why the performance of the four programs
 randg.py, randgNP.py, randg.cpp and erfinv_t.cpp (the last two to compile with ``c++ -Ofast -march=native``
 are so vastly different even if there are supposed to perfom exaclty the same work
-(throw "N" random gaussian numbersand compute average and rms....)
+(throw "N" random gaussian numbers and compute average and rms....)
 
 
 
@@ -97,7 +97,7 @@ More tests
 ==========
 
 
-Caveat: as in Exercise 1 compiler optimization choices may affect performances well bejond
+Caveat: as in Exercise 2 compiler optimization choices may affect performances well bejond
 code changes and HW architecture.
 
 
