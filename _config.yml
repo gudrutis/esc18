@@ -21,7 +21,7 @@ menu:
     - name: discoverHW
       label: Discover Hardware Architecture
     - name: perf
-      label: performance monitoring using "perf"
+      label: Profiling using "perf"
   - name: memory
     label: MEMORY
     items:
