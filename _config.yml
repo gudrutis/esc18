@@ -20,8 +20,15 @@ menu:
     items:
     - name: perf
       label: perf
+    - name: discoverHW
+      label: Discover Hardware Architecture
+  - name: memory
+    label: MEMORY
+    items:
+    - name: memoryMonitoring
+      label: Memory Monitoring Tools
   - name: cpp
-    label: C++ and MEMORY
+    label: C++
     items:
     - name: algorithms
       label: Algorithms

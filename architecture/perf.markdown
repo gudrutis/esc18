@@ -58,13 +58,13 @@ Excercise 1
 
 
 Discover where and why time is wasted
-_____________________________________
+-------------------------------------
 
-
-use perf to discover why the performance of the four programs
-randg.py, randgNP.py, randg.cpp and erfinv_t.cpp (the last two to compile with ``c++ -Ofast -march=native``
-are so vastly different even if there are supposed to perfom exaclty the same work
-(throw "N" random gaussian numbers and compute average and rms....)
+Use perf to discover why the performance of the four programs
+``randg.py``, ``randgNP.py``, ``randg.cpp`` and ``erfinv_t.cpp``
+(the last two to compile with ``c++ -Ofast -march=native``)
+are so vastly different even if there are supposed to perfom exaclty the same work:
+throw "N" random gaussian numbers and compute average and rms....
 
 
 
