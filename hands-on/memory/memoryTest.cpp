@@ -141,7 +141,7 @@ int main() {
   stop("after f(50)");
 #endif
 
-  constexpr size_t N = 1000*1000*1000;
+  constexpr size_t N = 200*1000*1000;
 
   cArray(N);
   stop("after cArray");
