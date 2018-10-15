@@ -18,10 +18,10 @@ menu:
   - name: architecture
     label: ARCHITECTURE
     items:
-    - name: perf
-      label: perf
     - name: discoverHW
       label: Discover Hardware Architecture
+    - name: perf
+      label: performance monitoring using "perf"
   - name: memory
     label: MEMORY
     items:
