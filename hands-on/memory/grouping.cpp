@@ -52,7 +52,7 @@ public:
 
 
   // return to which "initial group" element i has been found...
-  uint32_t group(uint32_t i) const {
+  uint32_t protoGroup(uint32_t i) const {
     i = i%totElements;
     i = i%ng + (i/7)%ng; // add a "beat"  (some groups may be empty...)
     return i%ng;
@@ -61,7 +61,7 @@ public:
 
   // return in which subgroup of "g" "i" belongs  ( 0 or 1)
   uint32_t split(uint32_t g, uint32_t i) const {
-    // assert(group(i)==g);
+    // assert(protoGroup(i)==g);
     return  (g%1014) ? (i%3)/2 : 0;      
   }
 
@@ -92,7 +92,7 @@ void one(bool doprint) {
 
   // here you have to find the first set of groups
   std::unordered_map<int,int> count;  // in std the default constructor of int IS int(0)
-  for (auto i=0U;i<ntot;++i) ++count[generator.group(i)];
+  for (auto i=0U;i<ntot;++i) ++count[generator.protoGroup(i)];
   if (doprint) std::cout << "--- Found " << count.size() << " groups" << std::endl;
 
 
