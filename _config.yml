@@ -29,6 +29,8 @@ menu:
       label: Memory Monitoring Tools
     - name: MemoryAbuse
       label: Memory Abuses
+    - name: DataLocality
+      label: Data Locality
   - name: cpp
     label: C++
     items:
