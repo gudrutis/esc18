@@ -1,0 +1,23 @@
+---
+title: Avoi dmemory abuse
+layout: main
+category: memory
+---
+
+There are two main memory abuses:
+   + use to much memory (even for a very short time)
+   + perform too many allocations/deallocations (memory churn)
+
+In addition the use of "sparse" data structures may imply
+   + pointer chasing (which may become computation intensive)
+   + data not locality
+
+Open [grouping.cpp]({{site.exercises_repo}}/hands-on/memory/grouping.cpp)
+
+The exercise consists in building the relationship between elements and groups
+(as in cluster algorithm for instance) so that one can find in which group an element belongs and perform operations as "compute the sum/average.. over some features of the elelements in each group (the total charge/mass, the baricenter etc)
+
+Only the total number of elements is given (elements numbered from 0 to N-1).
+The assumption is that the groups shall be discovered in the exercise even if the "grouping" algorithm is left undefined and is FAKED by some simple assignement.
+
+There is an assumption that the algorithm is in two steps: first it find protoGroups and then it spits (some of them) in two

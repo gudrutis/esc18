@@ -27,6 +27,8 @@ menu:
     items:
     - name: memoryMonitoring
       label: Memory Monitoring Tools
+    - name: MemoryAbuse
+      label: Memory Abuses
   - name: cpp
     label: C++
     items:
