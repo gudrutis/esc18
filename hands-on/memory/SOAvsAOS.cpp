@@ -27,7 +27,7 @@ void stop(const char * m) {
 }
 
 
-constexpr int N=100000;
+constexpr int N=200000;
 
 std::mt19937 reng;
 std::poisson_distribution<int> aGen(N);
@@ -48,9 +48,20 @@ void one(bool doprint) {
     d.vy =  ugen(reng);
     d.vz =  ugen(reng);
     auto r = igen(reng);
-    d.quality = r==0 ? bad : (r>=9 ? tight : loose);
-    d.isValid = bad!=d.quality;
+    d.quality = r==0 ? bad : (r>5 ? strict : loose); // strict 50%
+    if (r>=9) d.quality=tight; // 20%
+    d.isValid = bad!=d.quality;  // 10%
   }
+
+
+  if(doprint) stop("after generation");
+
+  // compute the "average" z on all "valid" elements
+  if(doprint) stop("after average z");
+
+  // compute nearest "tight" (or "strict") neighbour in x-y for all "tight" elements
+    if(doprint) stop("after NN");
+
   
   
 }
