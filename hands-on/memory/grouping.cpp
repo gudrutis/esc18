@@ -1,3 +1,6 @@
+//
+//  c++ -O2 grouping.cpp memory_usage.cc /usr/local/Cellar/jemalloc/5.1.0/lib/libjemalloc.dylib
+//
 #include<random>
 #include<vector>
 #include<cstdint>
@@ -20,7 +23,7 @@ void stop(const char * m) {
   std::cout << " elapsted time (ms) " << std::chrono::duration_cast<std::chrono::milliseconds>(delta).count() << std::endl;
   std::cout << "allocated so far " << memory_usage::allocated();
   std::cout << " deallocated so far " << memory_usage::deallocated() << std::endl;
-  std::cout << "total / max live " << memory_usage::totlive() << ' ' << maxLive << std::endl;
+  std::cout << "total / max live " << memory_usage::totlive() << ' ' << maxLive << std::endl<< std::endl;
 
   start = std::chrono::high_resolution_clock::now();
 }
@@ -36,7 +39,7 @@ std::poisson_distribution<int> bGen(ME);
 class Generator {
 public:
 
-  void generate() {
+  void generate(bool doprint) {
     // generate ng groups
     ng = aGen(reng);
 
@@ -44,20 +47,21 @@ public:
     int ne[ng];
     totElements=0;
     for(int i=0;i<ng;++i) totElements += (ne[i]=bGen(reng));
+    if (doprint) std::cout << "generated " << totElements << " in " << ng << " groups" << std::endl;
   }
 
 
   int group(uint32_t i) const {
     i = i%totElements;
-    i = i%ng + (i/7)%ng; 
+    i = i%ng + (i/7)%ng; // add a "beat"
     return i%ng;
     
   }
 
   // return in which subgroup of "g" "i" belongs
   int split(uint32_t g, uint32_t i) const {
-    return  (g%1014) ? (i%3)/2 : 0;  
-      
+    // assert(group(i)==g);
+    return  (g%1014) ? (i%3)/2 : 0;      
   }
 
   int nElements() const {
@@ -79,16 +83,16 @@ Generator generator;
 void one(bool doprint) {
  if (doprint) stop("before generation");
 
- generator.generate();
+ generator.generate(doprint);
 
  auto ntot = generator.nElements();
 
   if (doprint) stop("aftert generation");
 
   // here find the groups
-  std::unordered_map<int,int> count;
+  std::unordered_map<int,int> count;  // in std the default constructor of int IS int(0)
   for (int i=0;i<ntot;++i) ++count[generator.group(i)];
-
+  if (doprint) std::cout << "found " << count.size() << " groups" << std::endl;
   
   // and then split them
   
