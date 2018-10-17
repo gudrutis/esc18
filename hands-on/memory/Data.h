@@ -31,7 +31,27 @@ struct SOA {
   Float *x, *y, *z;
   Float *vx, *vy, *vz;
   bool *isValid;
-  Quality *quality;  
+  Quality *quality;
+  uint32_t size;
 };
+
+
+
+struct VSOA {
+  explicit VSOA(uint32_t s) :
+    x(s),y(s),z(s),
+    vx(s),vy(s),vz(s),
+    isValid(s),quality(s){}
+  
+  std::vector<Float> x, y, z;
+  std::vector<Float> vx, vy, vz;
+  std::vector<bool> isValid;
+  std::vector<Quality> quality;  
+};
+
+
+
+
+
 
 #endif 

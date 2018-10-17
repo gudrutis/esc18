@@ -44,6 +44,7 @@ void one(bool doprint) {
   // generate
   auto ntot = aGen(reng);
   AOS v(ntot);
+  // VSOA vsoa(ntot);
   for ( auto & d : v) {
     d.x =  ugen(reng);
     d.y =  ugen(reng);
