@@ -112,7 +112,7 @@ void one(bool doprint) {
   // generate number of As and for each A number of contained indices
   // this is "the truth"
   auto na = aGen(reng);
-  // make na even (like is easear)
+  // make na even (life is easear)
   na = 2*(na/2+1);
   int nb[na];
   int totElement=0;
