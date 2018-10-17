@@ -23,7 +23,7 @@ void stop(const char * m) {
   std::cout << " elapsted time (ms) " << std::chrono::duration_cast<std::chrono::milliseconds>(delta).count() << std::endl;
   std::cout << "allocated so far " << memory_usage::allocated();
   std::cout << " deallocated so far " << memory_usage::deallocated() << std::endl;
-  std::cout << "total / max live " << memory_usage::totlive() << ' ' << maxLive << std::endl<< std::endl;
+  std::cout << "total / max live " << memory_usage::totlive() << ' ' << maxLive << std::endl;
 
   start = std::chrono::high_resolution_clock::now();
 }
@@ -46,31 +46,32 @@ public:
     // for each group generate elements
     int ne[ng];
     totElements=0;
-    for(int i=0;i<ng;++i) totElements += (ne[i]=bGen(reng));
-    if (doprint) std::cout << "generated " << totElements << " in " << ng << " groups" << std::endl;
+    for(auto i=0U;i<ng;++i) totElements += (ne[i]=bGen(reng));
+    if (doprint) std::cout << "--- Generated " << totElements << " in " << ng << " groups" << std::endl;
   }
 
 
-  int group(uint32_t i) const {
+  // return to which "initial group" element i has been found...
+  uint32_t group(uint32_t i) const {
     i = i%totElements;
-    i = i%ng + (i/7)%ng; // add a "beat"
+    i = i%ng + (i/7)%ng; // add a "beat"  (some groups may be empty...)
     return i%ng;
     
   }
 
-  // return in which subgroup of "g" "i" belongs
-  int split(uint32_t g, uint32_t i) const {
+  // return in which subgroup of "g" "i" belongs  ( 0 or 1)
+  uint32_t split(uint32_t g, uint32_t i) const {
     // assert(group(i)==g);
     return  (g%1014) ? (i%3)/2 : 0;      
   }
 
-  int nElements() const {
+  auto nElements() const {
     return totElements;
   }
   
  private:
-  int ng;
-  int totElements;
+  uint32_t ng;
+  uint32_t totElements;
   
   
 };
@@ -79,7 +80,7 @@ public:
 
 Generator generator;
 
-#include<unordered_map>
+#include<unordered_map>  // not necessarely the best choice!
 void one(bool doprint) {
  if (doprint) stop("before generation");
 
@@ -89,13 +90,17 @@ void one(bool doprint) {
 
   if (doprint) stop("aftert generation");
 
-  // here find the groups
+  // here you have to find the first set of groups
   std::unordered_map<int,int> count;  // in std the default constructor of int IS int(0)
-  for (int i=0;i<ntot;++i) ++count[generator.group(i)];
-  if (doprint) std::cout << "found " << count.size() << " groups" << std::endl;
+  for (auto i=0U;i<ntot;++i) ++count[generator.group(i)];
+  if (doprint) std::cout << "--- Found " << count.size() << " groups" << std::endl;
+
+
   
-  // and then split them
-  
+  // and then split them in the final set
+
+
+  // at the end you should be able to tell with element is in which final group...
 
  if (doprint) stop("end of algo");
  
