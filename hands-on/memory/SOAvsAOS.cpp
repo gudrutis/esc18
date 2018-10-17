@@ -27,6 +27,10 @@ void stop(const char * m) {
 }
 
 
+void computeMeanZ(AOS const & v){}
+void computeNN(AOS const & v){}
+
+
 constexpr int N=200000;
 
 std::mt19937 reng;
@@ -57,10 +61,12 @@ void one(bool doprint) {
   if(doprint) stop("after generation");
 
   // compute the "average" z on all "valid" elements
+  computeMeanZ(v);
   if(doprint) stop("after average z");
 
   // compute nearest "tight" (or "strict") neighbour in x-y for all "tight" elements
-    if(doprint) stop("after NN");
+  computeNN(v);
+  if(doprint) stop("after NN");
 
   
   
