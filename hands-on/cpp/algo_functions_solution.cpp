@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <iterator>
 #include <numeric>
+#include <functional>
+#include <cassert>
 
 std::ostream& operator<<(std::ostream& os, std::vector<int> const& c);
 std::vector<int> make_vector(int N);
