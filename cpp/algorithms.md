@@ -1,5 +1,5 @@
 ---
-title: Use of function objects and algorithms
+title: Use of algorithms and function objects
 layout: main
 category: cpp
 ---
@@ -16,22 +16,31 @@ generates and prints a vector of randomly-chosen integer numbers.
 Build it and run it a few times to verify that it works as
 expected:
 
-    [studentNM@esc-XY ~]$ cd esc18/hands-on/cpp
-    [studentNM@esc-XY basic]$ g++ -O3 -Wall -Wextra -o algo algo.cpp
-    [studentNM@esc-XY basic]$ ./algo
-    [studentNM@esc-XY basic]$ ./algo
+    [student@esc ~]$ cd esc18/hands-on/cpp
+    [student@esc basic]$ g++ -O3 -Wall -Wextra -o algo algo.cpp
+    [student@esc basic]$ ./algo
+    [student@esc basic]$ ./algo
 
 Then extend the program in order to:
 
 * sum all the elements of the vector
-* multiply all the elements of the vector
-* sort the vector in ascending and descending order
-* move the even numbers at the beginning
-* move the three central numbers at the beginning
-* find the first element that satisfies a certain predicate
-* erase from the vector the elements that satisfy that predicate
+* compute the average of the first half and of the second half of the vector
+* move the three central numbers to the beginning
+* remove duplicate elements
 
 The source code contains some hints about what algorithms can be used
 to implement the requested functionality.
 [cppreference.com](http://en.cppreference.com/w/) is an excellent source of
 documentation for the algorithms (and C++ in general).
+
+Then starting from the test program
+[`algo_functions.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo_functions.cpp),
+modify it to:
+
+* multiply all the elements of the vector
+* sort the vector in descending order
+* move the even numbers to the beginning
+* find the first multiple of 3 or 7
+* erase from the vector all the multiples of 3 or 7
+
+For the implementation follow the hints in the source code.

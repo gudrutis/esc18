@@ -10,21 +10,23 @@ std::vector<int> make_vector(int N);
 
 int main()
 {
-  // create a vector of N elements, generated randomly
-  int const N = 10;
-  std::vector<int> v = make_vector(N);
+  std::vector<int> v = make_vector(10);
   std::cout << v << '\n';
 
-  // sum all the elements of the vector
+  // multiply all the elements of the vector
   // use std::accumulate
 
-  // compute the average of the first half and of the second half of the vector
+  // sort the vector in descending order
+  // use std::sort
 
-  // move the three central elements to the beginning of the vector
-  // use std::rotate
+  // move the even numbers at the beginning of the vector
+  // use std::partition
 
-  // remove duplicate elements
-  // use std::sort followed by std::unique/unique_copy
+  // find the first multiple of 3 or 7
+  // use std::find_if
+
+  // erase from the vector all the multiples of 3 or 7
+  // use std::remove_if followed by vector::erase
 };
 
 std::ostream& operator<<(std::ostream& os, std::vector<int> const& c)
@@ -42,6 +44,8 @@ std::ostream& operator<<(std::ostream& os, std::vector<int> const& c)
 
 std::vector<int> make_vector(int N)
 {
+  // define a pseudo-random number generator engine and seed it using an actual
+  // random device
   std::random_device rd;
   std::mt19937 eng{rd()};
 
