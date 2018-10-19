@@ -13,8 +13,6 @@ menu:
       label: Compiling
     - name: formatting
       label: Formatting
-    - name: valgrind
-      label: Valgrind
   - name: architecture
     label: ARCHITECTURE
     items:
