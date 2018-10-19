@@ -40,12 +40,8 @@ menu:
       label: Managing resources
     - name: move
       label: Move
-    - name: layout
-      label: Data layout
     - name: vector_vs_list
       label: vector vs list
-    - name: contract
-      label: Contracts
     - name: tidy
       label: Static analysis
 
