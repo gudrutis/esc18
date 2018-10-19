@@ -4,13 +4,14 @@ layout: main
 category: cpp
 ---
 
-The goal of this exercise is to get some confidence with the C++
-entities that are _callable_: functions, functors and lambdas. You
-will use them to customize the behaviour of some of the algorithms
-provided by the C++ standard library.
+The goal of these exercises is to get some confidence with the C++ entities that
+are _callable_: functions, function objects and lambdas. You will use them to
+customize the behaviour of some of the algorithms provided by the C++ standard
+library.
 
-The test program
-[`algo.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo.cpp)
+# Exercise 1
+
+The test program [`algo.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo.cpp)
 generates and prints a vector of randomly-chosen integer numbers.
 
 Build it and run it a few times to verify that it works as
@@ -32,6 +33,8 @@ The source code contains some hints about what algorithms can be used
 to implement the requested functionality.
 [cppreference.com](http://en.cppreference.com/w/) is an excellent source of
 documentation for the algorithms (and C++ in general).
+
+# Exercise 2
 
 Then starting from the test program
 [`algo_functions.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo_functions.cpp),

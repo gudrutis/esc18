@@ -10,7 +10,9 @@ std::vector<int> make_vector(int N);
 
 int main()
 {
-  std::vector<int> v = make_vector(10);
+  // create a vector of N elements, generated randomly
+  int const N = 10;
+  std::vector<int> v = make_vector(N);
   std::cout << v << '\n';
 
   // multiply all the elements of the vector

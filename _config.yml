@@ -39,7 +39,7 @@ menu:
     - name: issues
       label: Memory issues
     - name: pointers
-      label: Smart pointers
+      label: Managing resources
     - name: move
       label: Move
     - name: layout
