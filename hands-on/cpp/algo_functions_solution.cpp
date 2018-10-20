@@ -33,6 +33,11 @@ int main()
             << std::distance(std::begin(v), first_odd)
             << '\n';
 
+  // create another vector with the squares of the numbers in the first vector
+  std::vector<int> v2;
+  std::transform(std::begin(v), std::end(v), std::back_inserter(v2), [](int n) { return n * n; });
+  std::cout << "squares: " << v2 << '\n';
+
   // find the first multiple of 3 or 7
   auto found_it = std::find_if(
       std::begin(v),

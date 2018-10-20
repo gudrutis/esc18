@@ -41,6 +41,7 @@ Modify the program [`algo_functions.cpp`]({{site.exercises_repo}}/hands-on/cpp/a
 * multiply all the elements of the vector
 * sort the vector in descending order
 * move the even numbers to the beginning
+* create another vector with the squares of the numbers in the first vector
 * find the first multiple of 3 or 7
 * erase from the vector all the multiples of 3 or 7
 

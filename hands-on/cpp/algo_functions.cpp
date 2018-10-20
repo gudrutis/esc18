@@ -24,6 +24,9 @@ int main()
   // move the even numbers at the beginning of the vector
   // use std::partition
 
+  // create another vector with the squares of the numbers in the first vector
+  // use std::transform
+
   // find the first multiple of 3 or 7
   // use std::find_if
 
