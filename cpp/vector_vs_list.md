@@ -1,5 +1,5 @@
 ---
-title: `std::vector` vs `std::list`
+title: std::vector vs std::list
 layout: main
 category: cpp
 ---

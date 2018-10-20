@@ -52,16 +52,15 @@ Note how the sanitizers report fewer errors than `valgrind`.`
 # Exercise: memory issues
 
 Build and run, directly and through `valgrind`/_memory sanitizers_, the
-following small programs in
-[hands_on/cpp]({{site.exercises_repo}}/hands-on/cpp):
+following small programs:
 
-* `non_owning_pointer.cpp`. Uncomment the lines containing calls to
+* [`non_owning_pointer.cpp`]({{site.exercises_repo}}/hands-on/cpp/non_owning_pointer.cpp). Uncomment the lines containing calls to
   `free` or `delete` and see what the consequences are at run-time
-* `array_too_small.cpp`
-* `leak.cpp`. Comment the allocations and see what the consequences
+* [`array_too_small.cpp`]({{site.exercises_repo}}/hands-on/cpp/array_too_small.cpp)
+* [`leak.cpp`]({{site.exercises_repo}}/hands-on/cpp/leak.cpp). Comment the allocations and see what the consequences
   are at run-time
-* `double_delete.cpp`
-* `missed_delete.cpp`. Uncomment the lines about the `try`/`catch`
+* [`double_delete.cpp`]({{site.exercises_repo}}/hands-on/cpp/double_delete.cpp)
+* [`missed_delete.cpp`]({{site.exercises_repo}}/hands-on/cpp/missed_delete.cpp). Uncomment the lines about the `try`/`catch`
   block and position them in different places; see what the
   consequences are at run-time
 

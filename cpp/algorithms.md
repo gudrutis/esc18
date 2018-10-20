@@ -11,7 +11,7 @@ library.
 
 # Exercise 1
 
-The test program [`algo.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo.cpp)
+The program [`algo.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo.cpp)
 generates and prints a vector of randomly-chosen integer numbers.
 
 Build it and run it a few times to verify that it works as
@@ -36,9 +36,7 @@ documentation for the algorithms (and C++ in general).
 
 # Exercise 2
 
-Then starting from the test program
-[`algo_functions.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo_functions.cpp),
-modify it to:
+Modify the program [`algo_functions.cpp`]({{site.exercises_repo}}/hands-on/cpp/algo_functions.cpp) to:
 
 * multiply all the elements of the vector
 * sort the vector in descending order
