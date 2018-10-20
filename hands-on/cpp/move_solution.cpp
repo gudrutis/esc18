@@ -25,17 +25,12 @@ void make_vector_out(std::vector<int> &result, int N, std::function<int()> gen)
 
 std::vector<int> make_vector_norvo(int N, std::function<int()> gen)
 {
-  // "disable" RVO by mixing named and unnamed return
-  if (N > 0) {
-    std::vector<int> result;
+  std::vector<int> result;
 
-    result.reserve(N);
-    std::generate_n(std::back_inserter(result), N, gen);
+  result.reserve(N);
+  std::generate_n(std::back_inserter(result), N, gen);
 
-    return result;
-  } else {
-    return std::vector<int>{};
-  }
+  return std::move(result); // disable RVO
 }
 
 int main(int argc, char* argv[])

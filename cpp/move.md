@@ -18,7 +18,7 @@ Measure the time it takes to execute it applying the following variations:
 * the result is passed to the function as an output parameter (by reference or
   by pointer)
 
-* the result is return from the function, but the Return Value Optimization is
+* the result is returned from the function, but the Return Value Optimization is
   disabled (how?)
 
-Is there any differenc
+Is there any difference?
