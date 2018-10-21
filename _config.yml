@@ -40,10 +40,8 @@ menu:
       label: Managing resources
     - name: move
       label: Move
-    - name: vector_vs_list
-      label: vector vs list
-    - name: tidy
-      label: Static analysis
+    - name: containers
+      label: Containers
 
   -
     name: floatingpoint

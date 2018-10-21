@@ -1,5 +1,5 @@
 ---
-title: std::vector vs std::list
+title: Containers
 layout: main
 category: cpp
 ---
@@ -14,7 +14,7 @@ operations:
 generated. Each integer is inserted in a random position.
 
 * `process()`, which applies a reduction operation to the
-previously-filled vector.
+previously-filled container.
 
 Inspect, build and run `containers.cpp`, also through `perf`, varying
 the number of elements:
