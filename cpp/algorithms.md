@@ -18,9 +18,9 @@ Build it and run it a few times to verify that it works as
 expected:
 
     [student@esc ~]$ cd esc18/hands-on/cpp
-    [student@esc basic]$ g++ -O3 -Wall -Wextra -o algo algo.cpp
-    [student@esc basic]$ ./algo
-    [student@esc basic]$ ./algo
+    [student@esc cpp]$ g++ -O3 -Wall -Wextra -o algo algo.cpp
+    [student@esc cpp]$ ./algo
+    [student@esc cpp]$ ./algo
 
 Then extend the program in order to:
 
