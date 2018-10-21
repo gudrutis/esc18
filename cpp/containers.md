@@ -7,8 +7,8 @@ category: cpp
 The goal of this exercise is to appreciate the importance of
 manipulating data structures that are contiguous in memory.
 
-Take `containers.cpp`. It implements for an `std::vector<int>` two
-operations:
+Take [`containers.cpp`]({{site.exercises_repo}}/hands-on/cpp/containers.cpp). It
+implements for an `std::vector<int>` two operations:
 
 * `fill()`, which fills the container with `N` integers randomly
 generated. Each integer is inserted in a random position.
