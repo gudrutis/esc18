@@ -59,6 +59,17 @@ menu:
       label: Vectorize computation of pi
     - name: binning
       label: Vectorize the filling of an histogram
+  -name: parallelism
+    label: PARALLELISM
+    items:
+    - name: parcpp
+      label: Parallel C++
+    - name: tbb
+      label: TBB
+    - name: cuda
+      label: CUDA
+    - name: mpi
+      label: MPI
 
 defaults:
   -
