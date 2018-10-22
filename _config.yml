@@ -2,7 +2,6 @@ highlighter: rouge
 baseurl: /esc18
 menu_header: ESC18
 exercises_repo: https://github.com/infn-esc/esc18/blob/master
-future: true
 menu:
   -
     name: basic
@@ -60,7 +59,7 @@ menu:
       label: Vectorize computation of pi
     - name: binning
       label: Vectorize the filling of an histogram
-  -name: parallelism
+  - name: parallelism
     label: PARALLELISM
     items:
     - name: parcpp
