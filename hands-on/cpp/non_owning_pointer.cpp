@@ -1,14 +1,15 @@
 #include <memory>
+#include <iostream>
 
 char* some_api();
 
 int main()
 {
   auto* p = some_api();
-
+  std::cout << p << '\n';
   // free(p);
   // delete p;
-  // delete [] p;
+   delete [] p;
 }
 
 

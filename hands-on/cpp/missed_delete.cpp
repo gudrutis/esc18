@@ -1,4 +1,4 @@
-
+#include <memory>
 using SomeType = int;
 
 SomeType* factory();
@@ -6,16 +6,16 @@ void do_something(SomeType*);
 
 int main()
 {
-  auto t = factory();
+  std::unique_ptr<int> t { factory() };
 
-  // try {
+   try {
 
-  do_something(t);
+  do_something(t.get());
 
-  delete t;
+  // delete t;
 
-  // } catch (...) {
-  // }
+   } catch (...) {
+   }
 }
 
 SomeType* factory()

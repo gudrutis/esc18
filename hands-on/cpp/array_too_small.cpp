@@ -8,7 +8,7 @@ int g(char* buf)
 
 int main()
 {
-  char buf[10];
+  char buf[100]; // now it fist since increased the size of buffer
   int len = g(buf);
   printf("buf = '%s', len = %d", buf, len);
 }
