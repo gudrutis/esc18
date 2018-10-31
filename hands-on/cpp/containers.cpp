@@ -12,7 +12,8 @@ std::default_random_engine eng{std::random_device{}()};
 using Distribution = std::uniform_int_distribution<>;
 Distribution dist;
 
-Duration fill(std::vector<int>& cont, int N)
+template<class Container>
+Duration fill(Container& cont, int N)
 {
   assert(N >= 0);
 
@@ -33,14 +34,15 @@ Duration fill(std::vector<int>& cont, int N)
   return std::chrono::high_resolution_clock::now() - start;
 }
 
-Duration process(std::vector<int> const& cont)
+template<class Container>
+Duration process(Container const& cont)
 {
   auto start = std::chrono::high_resolution_clock::now();
 
   // the volatile is to avoid complete removal by the optimizer
   auto volatile v = std::accumulate(std::begin(cont), std::end(cont), 0, [](int a, int n) {
       return a ^ n;
-    });
+  });
   (void)v; // to silence a warning about unused variable
 
   return std::chrono::high_resolution_clock::now() - start;
@@ -48,12 +50,12 @@ Duration process(std::vector<int> const& cont)
 
 int main(int argc, char* argv[])
 {
-  int const N = (argc > 1) ? std::atoi(argv[1]) : 10000;
+  int const N = (argc > 1) ? std::atoi(argv[1]) : 1000'000;
 
   std::vector<int> v;
   std::cout << "vector fill: " << fill(v, N).count() << " s\n";
   std::cout << "vector process: " << process(v).count() << " s\n";
   std::list<int> l;
-  // std::cout << "list fill: " << fill(l, N).count() << " s\n";
-  // std::cout << "list process: " << process(l).count() << " s\n";
+   std::cout << "list fill: " << fill(l, N).count() << " s\n";
+   std::cout << "list process: " << process(l).count() << " s\n";
 }

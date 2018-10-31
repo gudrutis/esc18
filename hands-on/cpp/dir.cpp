@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iterator>
 #include <dirent.h>
+#include "tracking.hpp"
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, std::vector<T> const& c)
@@ -21,8 +22,8 @@ std::ostream& operator<<(std::ostream& os, std::vector<T> const& c)
 
 std::vector<std::string> entries(/* add the right arguments here */)
 {
+  Tracking {};
   std::vector<std::string> result;
-
   // relevant function and data structure are:
   //
   // int  readdir_r(DIR* dirp, struct dirent* entry, struct dirent** result);
@@ -42,12 +43,15 @@ std::vector<std::string> entries(/* add the right arguments here */)
 
 int main(int argc, char* argv[])
 {
+  Tracking {};
   std::string const name = argc > 1 ? argv[1] : ".";
 
   // create a smart pointer to a DIR here, with a deleter
   // relevant functions and data structures are
   // DIR* opendir(const char* name);
   // int  closedir(DIR* dirp);
+
+
 
   std::vector<std::string> v = entries(/* add the right argument here */);
   std::cout << v << '\n';
